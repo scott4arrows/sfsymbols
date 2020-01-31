@@ -102,8 +102,8 @@ public struct Glyph {
         self.isRTL = pieces[6] == "rtl"
         
         self.appleOnly = pieces[4] == "TRUE"
-        self.keywords = CSVFields(pieces[0])
-        self.categories = CSVFields(pieces[1])
+        self.keywords = pieces[0].trimmingCharacters(in: .punctuationCharacters).components(separatedBy: ", ") //CSVFields(pieces[0])
+        self.categories = pieces[1].trimmingCharacters(in: .punctuationCharacters).components(separatedBy: ", ") //CSVFields(pieces[1])
     }
     
     private init?(v1Pieces pieces: Array<String>, size: Size, inFont font: CTFont) {

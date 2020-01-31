@@ -19,18 +19,20 @@ public enum ExportFormat: String, CaseIterable {
     case pdf = "pdf"
     case iconset = "iconset"
     case iconsetPDF = "iconset-pdf"
-    
+    case json = "json"
+
     public var exporter: Exporter {
         switch self {
-            case .svg: return SVGExporter()
-            case .iosSwift: return iOSSwiftExporter()
-            case .iosObjC: return iOSObjCExporter()
-            case .macosSwift: return macOSSwiftExporter()
-            case .macosObjC: return macOSObjCExporter()
-            case .png: return PNGExporter()
-            case .pdf: return PDFExporter()
-            case .iconset: return IconsetExporter()
-            case .iconsetPDF: return PDFAssetCatalog()
+        case .svg: return SVGExporter()
+        case .iosSwift: return iOSSwiftExporter()
+        case .iosObjC: return iOSObjCExporter()
+        case .macosSwift: return macOSSwiftExporter()
+        case .macosObjC: return macOSObjCExporter()
+        case .png: return PNGExporter()
+        case .pdf: return PDFExporter()
+        case .iconset: return IconsetExporter()
+        case .iconsetPDF: return PDFAssetCatalog()
+        case .json: return JSONExporter()
         }
     }
 }

@@ -107,6 +107,7 @@ private func CTFontCopyDecodedSYMPData(_ font: CTFont) -> Data? {
     }
     
     let tag = fourCharCode("symp")
+
     guard let data = CTFontCopyTable(font, tag, []) else { return nil }
     guard let base64String = String(data: data as Data, encoding: .utf8) else { return nil }
     guard let encoded = NSData(base64Encoded: base64String) else { return nil }

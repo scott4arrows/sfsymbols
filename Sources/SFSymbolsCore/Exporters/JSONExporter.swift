@@ -16,6 +16,8 @@ public struct JSONExporter: Exporter {
         let contentsURL = options.outputFolder.appendingPathComponent("SFSymbols.json")
         var contentsJSON = "["
 
+        print("glyph count: \(font.glyphs.count)")
+
         for glyph in font.glyphs(matching: options.matchPattern) {
             contentsJSON += exportJSON(glyph, in: font, to: contentsURL)
         }
